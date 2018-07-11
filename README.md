@@ -144,15 +144,28 @@ Post
 
 ### 回调验证
 回调数据:
+``` json
 {"code":"1","msg":"支付成功","data":{"price":"1000","pay_type":"200","orderid":"54199961","goodsname":"iphone 8x","orderuid":"daycool","status":1,"user_ip":"::ffff:192.168.1.1","created_at":"2018-06-22 14:14:23","qrcodeUrl":"http://192.168.1.27:10132/1529634838.png","payUrl":"wxp://f2f17Fo6cZJC7jMzx_BuJoXavmzMZS9R1KiM","out_order_id":"2018062214142356"}}
+```
 
 验证key是否匹配:
 1.密文排序：
+
+```
 goodsname=iphone 8x&orderid=54199961&out_order_id=2018062214142356&pay_type=200&price=1000&user_id=daycool
+```
+
 2.加 secret
+
+```
 goodsname=iphone 8x&orderid=54199961&out_order_id=2018062214142356&pay_type=200&price=1000&user_id=daycoolxvi7hvszwk1b182tvjzjpezi4hx9gvmk
+```
+
 3.md5
+
+```
 09AA0422DD6C161C986804AAFEC4AD1D
+```
 
 
 ### 支付结果申诉
