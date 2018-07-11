@@ -1,28 +1,33 @@
-# 接口文档
+
+ccpay 商户接口文档
 ===============
 
 ##验证规则
 
-<font color="red">接口文档参数除key之外 将参数按照字母顺序排序。用'&' 符号连接 加上商户的secret md5**此接口建议用商户的服务端调用,如果数据为空的参数不作为key的密文中加密**</font>
-uid -- 商户平台>api接口里面的uid:227590393238130688
-secret --  商户平台>api接口里面的token:xvi7hvszwk1b182tvjzjpezi4hx9gvmk
+ 接口文档参数除key之外 将参数按照字母顺序排序。用'&' 符号连接 加上商户的secret md5**此接口建议用商户的服务端调用,如果数据为空的参数不作为key的密文中加密**
+
+ uid -- 商户平台>api接口里面的uid:227590393238130688
+ secret --  商户平台>api接口里面的token:xvi7hvszwk1b182tvjzjpezi4hx9gvmk
+
 eg:
 body内容：
+
 goodsname=100猿粪&notify_url=www.google.com&orderid=201806221558103445&orderuid=6000028&pay_type=100&price=50&return_url=www.baidu.com&uid=229638810097422336&user_ip=192.168.1.1
 加密规则：
 
-1.过滤空参数 并排序后：
-goodsname=100猿粪&notify_url=www.google.com&orderid=201806221558103445&orderuid=6000028&pay_type=100&price=50&return_url=www.baidu.com&uid=229638810097422336&user_ip=192.168.1.1
-2.加上secret
-goodsname=100猿粪&notify_url=www.google.com&orderid=201806221558103445&orderuid=6000028&pay_type=100&price=50&return_url=www.baidu.com&uid=229638810097422336&user_ip=192.168.1.1xvi7hvszwk1b182tvjzjpezi4hx9gvmk
-3.md5:
+1. 过滤空参数 并排序后：
+ goodsname=100猿粪&notify_url=www.google.com&orderid=201806221558103445&orderuid=6000028&pay_type=100&price=50&return_url=www.baidu.com&uid=229638810097422336&user_ip=192.168.1.1
+
+2. 加上secret
+ goodsname=100猿粪&notify_url=www.google.com&orderid=201806221558103445&orderuid=6000028&pay_type=100&price=50&return_url=www.baidu.com&uid=229638810097422336&user_ip=192.168.1.1xvi7hvszwk1b182tvjzjpezi4hx9gvmk
+
+3. md5:
 A2B0B2C285C502CE09631E2EDC624F79
 
 ##接口
 ### 1 商户平台请求支付
 #### Request:
 Post /ccpay/ach/pay
-
 
 | header  | 值  | 是否必须  |
 |--|--|-- |
@@ -34,11 +39,11 @@ Post /ccpay/ach/pay
 |uid | Y | 商户id |
 |price | Y | 商品价格（分） |
 |pay_type | Y | 100：支付宝；200：微信支付 |
-|notify_url | Y |  用户支付成功后，我们服务器会主动发送一个post消息到这个网址。由您自定义。不要urlencode。例：http://www.aaa.com/paysapi_notify |
+|notify_url | Y |  用户支付成功后，我们服务器会主动发送一个post消息到这个网址。由您自定义。不要urlencode。例：http://www.your-domian.com/paysapi_notify |
 |return_url | N |  跳转的链接 |
 |orderid | Y |  我们会据此判别是同一笔订单还是新订单。我们回调时，会带上这个参数。例：201710192541 |
 |goodsname | N |  商品名称 |
-|orderuid | N |  商户自己的用户id |
+|orderuid | Y |  商户自己的用户id |
 |key | Y |  必填，验证规则参考验证规则目录 |
 |user_ip | Y |  商户用户的ip |
 
@@ -51,12 +56,12 @@ key 验证的key
     "err_msg": "no msg",
     "data": {
         "result": {
-            "qr_url": "http://192.168.1.27:10132/1524913744.jpg" --待支付的二维码
-            "out_order_id":"xxx" --平台生成的订单id
-            "price":"xx"--订单金额（分）
-            "goodsname":"商品名称"
-            "orderid"："xxx" --商户自己的订单id
-            "parse_url"："xxx"  --解析的url
+            "qr_url": "http://192.168.1.27:10132/1524913744.jpg", // 待支付的二维码
+            "out_order_id":"xxx",                                 // 平台生成的订单id
+            "price":"xx",                                         // 订单金额（分）
+            "goodsname":"商品名称",
+            "orderid"："xxx",                                      // 商户自己的订单id
+            "parse_url"："xxx"                                     // 解析的url
         }
     }
 }
@@ -89,8 +94,8 @@ key 验证的key
     "err_msg": "no msg",
     "data": {
         "result": {
-            "out_order_id":"xxx" --平台生成的订单id
-            "status"："xx",--1未支付 2已经支付
+            "out_order_id":"xxx", // 平台生成的订单id
+            "status"："xx"        // 1未支付 2已经支付
         }
     }
 }
