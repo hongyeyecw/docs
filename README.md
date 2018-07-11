@@ -156,7 +156,9 @@ goodsname=iphone 8x&orderid=54199961&out_order_id=2018062214142356&pay_type=200&
 
 
 ### 支付结果申诉
+
 Post /ccpay/ach/order/check
+
 | header  | 值  | 是否必须  |
 |--|--|-- |
 |Content-Type | application/json | 是 |
