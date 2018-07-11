@@ -1,8 +1,7 @@
 
-ccpay 商户接口文档
-===============
+# 接口文档
 
-##验证规则
+## 验证规则
 
  接口文档参数除key之外 将参数按照字母顺序排序。用'&' 符号连接 加上商户的secret md5**此接口建议用商户的服务端调用,如果数据为空的参数不作为key的密文中加密**
 
@@ -24,7 +23,7 @@ goodsname=商品名&notify_url=www.google.com&orderid=201806221558103445&orderui
 3. md5:
 A2B0B2C285C502CE09631E2EDC624F79
 
-##接口
+## 接口
 ### 1 商户平台请求支付
 #### Request:
 Post /ccpay/ach/pay
@@ -48,6 +47,7 @@ Post /ccpay/ach/pay
 |user_ip | Y |  商户用户的ip |
 
 key 验证的key
+
 ### Response:
 ``` json
 {
@@ -69,7 +69,7 @@ key 验证的key
 
 
 
-##接口
+## 接口
 ### 2 查询订单状态
 #### Request:
 Post /ccpay/ach/query
@@ -102,7 +102,8 @@ key 验证的key
 ```
 
 ### callback:
-Post
+Post  
+
 | header  | 值  | 是否必须  |
 |--|--|-- |
 |Content-Type | application/json | 是 |
@@ -122,7 +123,7 @@ Post
 ### http status  200 成功处理
 
 > 当 http status 为200  且 code =1  平台才认为商户成功接受此回调 其他平台会在两分钟后重发此请求，总共尝试10次 如果10次之后仍然没法通知商户，商户可调用查询订单接口查询订单状态  
-> 回调可能多次，商户订单需要做重复处理
+> 回调可能多次, 商户订单需要做重复处理
 
 ``` json
 {"code":"1","msg":"处理成功"}
@@ -166,7 +167,7 @@ Post /ccpay/ach/order/check
 }
 ```
 
-##错误码
+## 错误码
 
 | 错误码  | 注释  |
 |--|--|
