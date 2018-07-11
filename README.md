@@ -12,14 +12,14 @@ ccpay 商户接口文档
 eg:
 body内容：
 
-goodsname=100猿粪&notify_url=www.google.com&orderid=201806221558103445&orderuid=6000028&pay_type=100&price=50&return_url=www.baidu.com&uid=229638810097422336&user_ip=192.168.1.1
+goodsname=商品名&notify_url=www.google.com&orderid=201806221558103445&orderuid=6000028&pay_type=100&price=50&return_url=www.baidu.com&uid=229638810097422336&user_ip=192.168.1.1
 加密规则：
 
 1. 过滤空参数 并排序后：
- goodsname=100猿粪&notify_url=www.google.com&orderid=201806221558103445&orderuid=6000028&pay_type=100&price=50&return_url=www.baidu.com&uid=229638810097422336&user_ip=192.168.1.1
+ goodsname=商品名&notify_url=www.google.com&orderid=201806221558103445&orderuid=6000028&pay_type=100&price=50&return_url=www.baidu.com&uid=229638810097422336&user_ip=192.168.1.1
 
 2. 加上secret
- goodsname=100猿粪&notify_url=www.google.com&orderid=201806221558103445&orderuid=6000028&pay_type=100&price=50&return_url=www.baidu.com&uid=229638810097422336&user_ip=192.168.1.1xvi7hvszwk1b182tvjzjpezi4hx9gvmk
+ goodsname=商品名&notify_url=www.google.com&orderid=201806221558103445&orderuid=6000028&pay_type=100&price=50&return_url=www.baidu.com&uid=229638810097422336&user_ip=192.168.1.1xvi7hvszwk1b182tvjzjpezi4hx9gvmk
 
 3. md5:
 A2B0B2C285C502CE09631E2EDC624F79
@@ -60,8 +60,8 @@ key 验证的key
             "out_order_id":"xxx",                                 // 平台生成的订单id
             "price":"xx",                                         // 订单金额（分）
             "goodsname":"商品名称",
-            "orderid"："xxx",                                      // 商户自己的订单id
-            "parse_url"："xxx"                                     // 解析的url
+            "orderid":"xxx",                                      // 商户自己的订单id
+            "parse_url":"xxx"                                     // 解析的url
         }
     }
 }
@@ -95,7 +95,7 @@ key 验证的key
     "data": {
         "result": {
             "out_order_id":"xxx", // 平台生成的订单id
-            "status"："xx"        // 1未支付 2已经支付
+            "status":"xx"        // 1未支付 2已经支付
         }
     }
 }
