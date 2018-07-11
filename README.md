@@ -3,25 +3,32 @@
 
 ## 验证规则
 
- 接口文档参数除key之外 将参数按照字母顺序排序。用'&' 符号连接 加上商户的secret md5**此接口建议用商户的服务端调用,如果数据为空的参数不作为key的密文中加密**
+接口文档参数除key之外 将参数按照字母顺序排序。用'&' 符号连接 加上商户的secret md5**此接口建议用商户的服务端调用,如果数据为空的参数不作为key的密文中加密**
 
- uid -- 商户平台>api接口里面的uid:227590393238130688
- secret --  商户平台>api接口里面的token:xvi7hvszwk1b182tvjzjpezi4hx9gvmk
+uid -- 商户平台>api接口里面的uid:227590393238130688  
 
-eg:
+secret --  商户平台>api接口里面的token:xvi7hvszwk1b182tvjzjpezi4hx9gvmk  
+
 body内容：
-
+``` 
 goodsname=商品名&notify_url=www.google.com&orderid=201806221558103445&orderuid=6000028&pay_type=100&price=50&return_url=www.baidu.com&uid=229638810097422336&user_ip=192.168.1.1
 加密规则：
+```
 
-1. 过滤空参数 并排序后：
+1. 过滤空参数 并排序后：  
+```
  goodsname=商品名&notify_url=www.google.com&orderid=201806221558103445&orderuid=6000028&pay_type=100&price=50&return_url=www.baidu.com&uid=229638810097422336&user_ip=192.168.1.1
+```
 
-2. 加上secret
+2. 加上secret  
+```
  goodsname=商品名&notify_url=www.google.com&orderid=201806221558103445&orderuid=6000028&pay_type=100&price=50&return_url=www.baidu.com&uid=229638810097422336&user_ip=192.168.1.1xvi7hvszwk1b182tvjzjpezi4hx9gvmk
+```
 
-3. md5:
+3. md5:  
+```
 A2B0B2C285C502CE09631E2EDC624F79
+```
 
 ## 接口
 ### 1 商户平台请求支付
