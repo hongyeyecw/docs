@@ -13,7 +13,7 @@
 
 * uid : 商户平台>api接口里面的 `uid:227590393238130****`
 
-* secret : 商户平台>api接口里面的`token:xvi7hvszwk1b182tvjzjpezi4hx*****`
+* secret : 商户平台>api接口里面的`token: xvi7hvszwk1b182tvjzjpezi4hx9gvmk`
 
 body内容：
 ``` 
@@ -33,7 +33,7 @@ goodsname=商品名&notify_url=www.google.com&orderid=201806221558103445&orderui
 
 3. md5:  
 ```
-A2B0B2C285C502CE09631E2EDC624F79
+2ad19ebf430323f0f08fe63bc21be50c
 ```
 
 ## 接口
@@ -145,7 +145,15 @@ Post
 ### 回调验证
 回调数据:
 ``` json
-{"code":"1","msg":"支付成功","data":{"price":"1000","pay_type":"200","orderid":"54199961","goodsname":"iphone 8x","orderuid":"daycool","status":1,"user_ip":"::ffff:192.168.1.1","created_at":"2018-06-22 14:14:23","qrcodeUrl":"http://192.168.1.27:10132/1529634838.png","payUrl":"wxp://f2f17Fo6cZJC7jMzx_BuJoXavmzMZS9R1KiM","out_order_id":"2018062214142356"}}
+{
+    "user_id":"",
+    "goodsname":"18774005563",
+    "pay_type":"200",
+    "orderid":"201807060939504936122",
+    "key":"daf2bc680fffac7534980a29f9b4d98b",
+    "price":"30000",
+    "out_order_id":"201807060939585995"
+}
 ```
 
 验证key是否匹配:
@@ -164,7 +172,7 @@ goodsname=iphone 8x&orderid=54199961&out_order_id=2018062214142356&pay_type=200&
 3.md5
 
 ```
-09AA0422DD6C161C986804AAFEC4AD1D
+09aa0422dd6c161c986804aafec4ad1d
 ```
 
 
