@@ -2,7 +2,13 @@
 # 接口文档 1.0
 
 ## 版本
+> v1.1 2018-07-15
 > v1.0 2018-07-11
+
+## 更新
+* 更新签名的验证方式
+    * 调用接口参数加密方式，移除`空参数`后拼接`secret`，MD5 加密
+    * 回调商户加密方式, `空参数`也会拼接到待加密的字符串中
 
 ## 验证规则
 
@@ -17,23 +23,24 @@
 
 body内容：
 ``` 
-goodsname=商品名&notify_url=www.google.com&orderid=201806221558103445&orderuid=6000028&pay_type=100&price=50&return_url=www.baidu.com&uid=229638810097422336&user_ip=192.168.1.1
+goodsname=&notify_url=www.google.com&orderid=201806221558103445&orderuid=6000028&pay_type=100&price=50&return_url=www.baidu.com&uid=229638810097422336&user_ip=192.168.1.1
 加密规则：
 ```
 
 1. 参数排序后：  
 ```
- goodsname=商品名&notify_url=www.google.com&orderid=201806221558103445&orderuid=6000028&pay_type=100&price=50&return_url=www.baidu.com&uid=229638810097422336&user_ip=192.168.1.1
+// 注:goodsname 为空,移除空参数
+notify_url=www.google.com&orderid=201806221558103445&orderuid=6000028&pay_type=100&price=50&return_url=www.baidu.com&uid=229638810097422336&user_ip=192.168.1.1
 ```
 
 2. 加上secret  
 ```
- goodsname=商品名&notify_url=www.google.com&orderid=201806221558103445&orderuid=6000028&pay_type=100&price=50&return_url=www.baidu.com&uid=229638810097422336&user_ip=192.168.1.1xvi7hvszwk1b182tvjzjpezi4hx9gvmk
+notify_url=www.google.com&orderid=201806221558103445&orderuid=6000028&pay_type=100&price=50&return_url=www.baidu.com&uid=229638810097422336&user_ip=192.168.1.1xvi7hvszwk1b182tvjzjpezi4hx9gvmk
 ```
 
 3. md5:  
 ```
-2ad19ebf430323f0f08fe63bc21be50c
+8df66118129e8cfe7446c6182daf9ab4
 ```
 
 ## 接口
@@ -160,19 +167,21 @@ Post
 1.密文排序：
 
 ```
-goodsname=iphone 8x&orderid=54199961&out_order_id=2018062214142356&pay_type=200&price=1000&user_id=daycool
+goodsname=&orderid=54199961&out_order_id=2018062214142356&pay_type=200&price=1000&user_id=daycool
 ```
 
-2.加 secret
+2.加 secret 
 
 ```
-goodsname=iphone 8x&orderid=54199961&out_order_id=2018062214142356&pay_type=200&price=1000&user_id=daycoolxvi7hvszwk1b182tvjzjpezi4hx9gvmk
+// 注: 这里的 goodsname 为空。
+// 这里和调用时的方式有区别，这里需要拼接空的参数
+goodsname=&orderid=54199961&out_order_id=2018062214142356&pay_type=200&price=1000&user_id=daycoolxvi7hvszwk1b182tvjzjpezi4hx9gvmk
 ```
 
 3.md5
 
 ```
-09aa0422dd6c161c986804aafec4ad1d
+c56c1b8c8f72e62528f72ce88eae1345
 ```
 
 
