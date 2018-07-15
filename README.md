@@ -50,7 +50,7 @@ Post /ccpay/ach/pay
 
 | header  | 值  | 是否必须  |
 |--|--|-- |
-|Content-Type | application/json | 是 |
+|Content-Type | application/x-www-form-urlencoded | 是 |
 
 
 | 参数名称  | 是否必须  | 解释  |
@@ -97,7 +97,7 @@ Post /ccpay/ach/query
 
 | header  | 值  | 是否必须  |
 |--|--|-- |
-|Content-Type | application/json | 是 |
+|Content-Type | application/x-www-form-urlencoded | 是 |
 
 
 | 参数名称  | 是否必须  | 解释  |
@@ -191,7 +191,7 @@ Post /ccpay/ach/order/check
 
 | header  | 值  | 是否必须  |
 |--|--|-- |
-|Content-Type | application/json | 是 |
+|Content-Type | application/x-www-form-urlencoded | 是 |
 
 
 | 参数名称   | 解释  |
