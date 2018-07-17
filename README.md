@@ -38,7 +38,7 @@ notify_url=www.google.com&orderid=201806221558103445&orderuid=6000028&pay_type=1
 notify_url=www.google.com&orderid=201806221558103445&orderuid=6000028&pay_type=100&price=50&return_url=www.baidu.com&uid=229638810097422336&user_ip=192.168.1.1xvi7hvszwk1b182tvjzjpezi4hx9gvmk
 ```
 
-3. md5:  
+3. md5`(小写)`:  
 ```
 8df66118129e8cfe7446c6182daf9ab4
 ```
