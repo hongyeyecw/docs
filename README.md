@@ -21,7 +21,7 @@
 
 * secret : 商户平台>api接口里面的`token: xvi7hvszwk1b182tvjzjpezi4hx9gvmk`
 
-body内容：
+参数内容：
 ``` 
 goodsname=&notify_url=www.google.com&orderid=201806221558103445&orderuid=6000028&pay_type=100&price=50&return_url=www.baidu.com&uid=229638810097422336&user_ip=192.168.1.1
 加密规则：
@@ -46,6 +46,7 @@ notify_url=www.google.com&orderid=201806221558103445&orderuid=6000028&pay_type=1
 ## 接口
 ### 1 商户平台请求支付
 #### Request:
+<span style="color: red">注意：此接口的参数需要拼接到url后提交，不要提交到body里面</span>
 Post /ccpay/ach/pay
 
 | header  | 值  | 是否必须  |
